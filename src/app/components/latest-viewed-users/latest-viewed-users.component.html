@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center pb-2">
+  <h5>Latest Viewed Users</h5>
+</div>
+<div *ngFor="let user of viewedUsers">
+  <div *ngIf="user" class="card mb-2">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-8">
+          <div><b>{{user?.name}}</b></div>
+          <div><a><i>{{user?.email}}</i></a></div>
+          <div>{{user?.gender}}</div>
+        </div>
+        <div class="col-md-4 d-flex align-items-center">
+          <button type="button" (click)="onViewPostClick(user)" class="btn btn-success">View
+            Posts</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!viewedUsers[0]">
+  <div class="card">
+    <div class="card-body">
+      <i>No users viewed.</i>
+    </div>
+  </div>
+</div>

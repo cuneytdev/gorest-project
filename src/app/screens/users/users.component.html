@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-end">
+  <div class="row">
+    <div class="col p-3">
+      <input type="text" placeholder="Name Filter" [(ngModel)]="searchedUser" (input)="onFilter()"
+        class="form-control pull-right">
+    </div>
+  </div>
+</div>
+<div class="table-responsive-xl">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+      <tr>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.status}}</td>
+        <td><button type="button" (click)="onViewPostClick(user)" class="btn btn-success">View Posts</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="d-flex justify-content-end">
+  <pagination [totalItems]="totalRecords" [maxSize]="7" [itemsPerPage]="20" (pageChanged)="pageChanged($event)">
+  </pagination>
+</div>
